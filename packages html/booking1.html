@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Booking Form</title>
+		<meta charset="utf-8">
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="icon" href="images/favicon.ico">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="booking/css/booking.css">
+		<link rel="stylesheet" href="css/camera.css">
+		<link rel="stylesheet" href="css/owl.carousel.css">
+		<link rel="stylesheet" href="css/booking.css">
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.2.0/tailwind.min.css'><link rel="stylesheet" href="./style.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-migrate-1.2.1.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/superfish.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/jquery.equalheights.js"></script>
+		<script src="js/jquery.mobilemenu.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/owl.carousel.js"></script>
+		<script src="js/camera.js"></script>
+		<script src="js/jquery.mobile.customized.min.js"></script>
+
+		<script src="booking/js/booking.js"></script>
+		<script>
+			$(document).ready(function(){
+			jQuery('#camera_wrap').camera({
+				loader: false,
+				pagination: false ,
+				minHeight: '444',
+				thumbnails: false,
+				height: '48.375%',
+				caption: true,
+				navigation: true,
+				fx: 'mosaic'
+			});
+
+			var owl=$("#owl");
+				owl.owlCarousel({
+				items : 2,
+				itemsDesktop : [995,2],
+				itemsDesktopSmall : [767, 2],
+				itemsTablet: [700, 2],
+				itemsMobile : [479, 1],
+				navigation : true,
+				pagination : false
+				});
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			});
+		</script>
+
+	</head>
+	<body class="page1" id="top">
+
+
+<div class="flex flex-wrap">
+		<div class="w-full sm:w-8/12 mb-10">
+			<div class="container mx-auto h-full sm:p-10">
+				<nav class="flex px-4 justify-between items-center">
+					<div class="text-4xl font-bold">
+						<span class="text-green-700">Booking Form</span>
+						</div>
+				</nav>
+				<header class="container px-4 lg:flex mt-10 items-center h-full lg:mt-0">
+					<div class="w-full">
+						<div class="w-20 h-2 bg-white-700 my-4"></div>
+						<div class="clear"></div>
+						<div class="grid_6">
+							<form action="http://localhost/booking1.php" method="post" id="bookingForm">
+								<div class="fl1">
+									<div class="tmInput">
+										<input name="Name" placeHolder="Name:" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
+									</div>
+									<div class="tmInput">
+										<input name="Country" placeHolder="Country:" type="text" data-constraints="@NotEmpty @Required">
+									</div>
+								</div>
+								<div class="fl1">
+									<div class="tmInput">
+										<input name="Email" placeHolder="Email:" type="text" data-constraints="@NotEmpty @Required @Email">
+									</div>
+									<div class="tmInput mr0">
+										<input name="Contact" placeHolder="Contact:" type="text" data-constraints="@NotEmpty @Required">
+									</div>
+								</div>
+								<div class="clear"></div>
+								<div class="tmRadio">
+									<p>Comfort</p>
+									<input name="Comfort" value="Economical" type="radio" id="tmRadio0" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' checked/>
+									<span>Economical</span>
+									<input name="Comfort" value="Standard" type="radio" id="tmRadio1" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
+									<span>Standard</span>
+									<input name="Comfort" value="Lux" type="radio" id="tmRadio2" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
+									<span>Lux</span>
+								</div>
+								<div class="clear"></div>
+								<div class="fl1 fl2">
+									<em>Adults</em>
+									<select name="Adults" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+										<option selected hidden value="">select</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+									<div class="clear"></div>
+									<em>Rooms</em>
+									<select name="Rooms" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+										<option selected hidden value="">select</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+								</div>
+								<div class="fl1 fl2">
+									<em>Children</em>
+									<select name="Children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+										<option selected hidden value="">select</option>
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+									</select>
+								</div>
+								<div class="clear"></div>
+								<div class="tmTextarea">
+									<textarea name="Message" placeHolder="Message" data-constraints=' @Length(min=20,max=999999)'></textarea>
+								</div>
+								<button type="submit" class="bg-green-700 text-white text-2xl font-medium px-4 py-2 rounded shadow">Submit</button>
+							</form>
+						</div>
+					</div>
+				</header>
+			</div>
+		</div>
+		<img src="https://images.unsplash.com/photo-1536147116438-62679a5e01f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Leafs" class="w-full h-48 object-cover sm:h-screen sm:w-4/12">
+	</div>
+
+
+
+		<script>
+			$(function (){
+				$('#bookingForm').bookingForm({
+					ownerEmail: '#'
+				});
+			})
+			$(function() {
+				$('#bookingForm input, #bookingForm textarea').placeholder();
+			});
+		</script>
+	</body>
+</html>
